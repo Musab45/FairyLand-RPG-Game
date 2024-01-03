@@ -872,7 +872,7 @@ void GameMenu()
 {
     int menu_choice = 0;
     cout << "---------------------------------------" << endl;
-    cout << "RPG GAME" << endl;
+    cout << "* Dawn on Faelight *" << endl;
     cout << endl;
     cout << "---------------------------------------" << endl;
     playerdatadisplay();
