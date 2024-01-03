@@ -81,9 +81,15 @@ Enemy Dragon = { "Dragon",50,15,5 };
 Enemy Skeleton = { "Skeleton",30,10,5 };
 Enemy Ghost = { "Ghost",90,30,15 };
 Enemy Centaur = { "Centaur",100,30,20 };
-Enemy GrimReaper = { "Grim Reaper",150,70,60 };
+Enemy GrimReaper = { "Grim Reaper",500,90,80 };
 Enemy Shadow_Overlord = { "Shadow Overlord",1000,150,110 };
 Enemy Fairy_King = { "Fairy King",800,200,170 };
+
+// Introduction to Storyline
+void introduction()
+{
+    cout << "A long time ago evil powers and creatures used to roam around freely across worlds breaking barriers and causing havoc across all worlds. In a world devoid of happiness. Everyone lived a miserable life until a group of wizards discovered that both the World of Magic and the World of Shadows was controlled by two stones; The Sun Stone and The Moon Stone. Both of the stones were powerful artifacts that can only be possesed by the greatest of magicians. So the wizards decided to merge their souls forming a single being powerful enough to control both the worlds. With the stones in his hand the powerful wizard banished all evil from the world casting it away far into the depths of hell. The world then became peaceful as it once was. The Wizard locked himself under a village and turned into a stone for the protection of peace. A thousand years later a Grim Reaper opens up a gate between the Fairy World and The Shadow Realm, Grim Reapers have been feared for ages as they bring death upon every living being and can travel through worlds at a speed far greater than the speed light. The Grim Reaper intends to stay and collect The Sun Stone and The Moon Stone, making an offering to the Shadow OverLord who's plan is to open up all the gates of Hell and cast all evil back to the fairy world. You have to aquire the stones from the Grim Reaper and reawaken the Old Wizard in hope that he closes up the gate opened by the Grim Reaper. " << endl;
+}
 
 // Enemy Decision
 // Easily Create Enemy in Quest
@@ -601,12 +607,12 @@ void battle()
                 break;
             }
         }
-        else
-        {
-            cout << "Wrong Entry! Try Again." << endl;
-        }
         if (fight == 2)
         {
+            cout << endl;
+            cout << "---------------------------------------" << endl;
+            cout << endl;
+            cout << "You ran away!" << endl;
             break;
         }
     } while (fight < 3);
@@ -655,15 +661,21 @@ void quest()
 
                 // 1 Dragon
                 // Set Dragon as Active Enemy
-                enemyDecision(Dragon);
-                battle();
-                // Reward
-                cout << "* Easy Quest Completed! *" << endl;
-                cout << "* You have earned 5$ and 50 XP *" << endl;
-                currency += 5;
-                xp += 50;
-                score += 500;
-                cout << "500 Score Gained!" << endl;
+                if (Active_Enemy.hp <= 0)
+                {
+                    enemyDecision(Dragon);
+                    battle();
+                }
+                if (Active_Enemy.hp <= 0)
+                {
+                    // Reward
+                    cout << "* Easy Quest Completed! *" << endl;
+                    cout << "* You have earned 5$ and 50 XP *" << endl;
+                    currency += 5;
+                    xp += 50;
+                    score += 500;
+                    cout << "500 Score Gained!" << endl;
+                }
                 break;
 
                 // Normal Quest
@@ -679,28 +691,41 @@ void quest()
 
                 // 2 Dragon
                 // Set Dragon as Active Enemy
-                enemyDecision(Dragon);
-                for (int q2_drg = 1; q2_drg <= 2; q2_drg++)
+                if (Active_Enemy.hp <= 0)
                 {
-                    Active_Enemy.hp = 50;
-                    battle();
+                    enemyDecision(Dragon);
+                    for (int q2_drg = 1; q2_drg <= 2; q2_drg++)
+                    {
+                        Active_Enemy.hp = 50;
+                        battle();
+                    }
                 }
 
                 // 2 Ghost
                // Set Ghost as Active Enemy
-                enemyDecision(Ghost);
-                for (int q2_gho = 1; q2_gho <= 2; q2_gho++)
+                if (Active_Enemy.hp <= 0)
                 {
-                    Active_Enemy.hp = 90;
-                    battle();
+                    enemyDecision(Ghost);
+                    for (int q2_gho = 1; q2_gho <= 2; q2_gho++)
+                    {
+                        Active_Enemy.hp = 90;
+                        battle();
+                    }
                 }
-                // Reward
-                cout << "* Normal Quest Completed! *" << endl;
-                cout << "* You have earned 10$ and 100 XP *" << endl;
-                currency += 10;
-                xp += 100;
-                score += 1500;
-                cout << "1500 Score Gained!" << endl;
+                
+                if (Active_Enemy.hp <= 0)
+                {
+                    // Reward
+                    if (Active_Enemy.hp <= 0)
+                    {
+                        cout << "* Normal Quest Completed! *" << endl;
+                        cout << "* You have earned 10$ and 100 XP *" << endl;
+                        currency += 10;
+                        xp += 100;
+                        score += 1500;
+                        cout << "1500 Score Gained!" << endl;
+                    }
+                }
                 break;
 
                 //Hard Quest
@@ -716,28 +741,37 @@ void quest()
 
                 // 3 Ghost
                // Set Ghost as Active Enemy
-                enemyDecision(Ghost);
-                for (int q3_gho = 1; q3_gho <= 3; q3_gho++)
+                if (Active_Enemy.hp <= 0)
                 {
-                    Active_Enemy.hp = 90;
-                    battle();
+                    enemyDecision(Ghost);
+                    for (int q3_gho = 1; q3_gho <= 3; q3_gho++)
+                    {
+                        Active_Enemy.hp = 90;
+                        battle();
+                    }
                 }
 
                 // 3 Centaurs
                 // Set Ghost as Active Enemy
-                enemyDecision(Centaur);
-                for (int q3_cen = 1; q3_cen <= 3; q3_cen++)
+                if (Active_Enemy.hp <= 0)
                 {
-                    Active_Enemy.hp = 90;
-                    battle();
+                    enemyDecision(Centaur);
+                    for (int q3_cen = 1; q3_cen <= 3; q3_cen++)
+                    {
+                        Active_Enemy.hp = 90;
+                        battle();
+                    }
                 }
                 // Reward
-                cout << "* Hard Quest Completed! *" << endl;
-                cout << "* You have earned 20$ and 200 XP *" << endl;
-                currency += 20;
-                xp += 200;
-                score += 3000;
-                cout << "3000 Score Gained!" << endl;
+                if (Active_Enemy.hp <= 0)
+                {
+                    cout << "* Hard Quest Completed! *" << endl;
+                    cout << "* You have earned 20$ and 200 XP *" << endl;
+                    currency += 20;
+                    xp += 200;
+                    score += 3000;
+                    cout << "3000 Score Gained!" << endl;
+                }
                 break;
 
                 //Impossible
@@ -749,24 +783,37 @@ void quest()
 
                 // 1 Ghost
                 // Set Ghost as Active Enemy
-                enemyDecision(Ghost);
-                battle();
+                if (Active_Enemy.hp <= 0)
+                {
+                    enemyDecision(Ghost);
+                    battle();
+                }
 
                 // 1 Grim Reaper
                 // Set Grim Reaper as Active Enemy
-                enemyDecision(GrimReaper);
-                battle();
                 if (Active_Enemy.hp <= 0)
                 {
-                    specials_unlocked = true;
+                    enemyDecision(GrimReaper);
+                    battle();
+                    if (Active_Enemy.hp <= 0)
+                    {
+                        specials_unlocked = true;
+                    }
                 }
                 // Reward
-                cout << "* Impossible Quest Completed! *" << endl;
-                cout << "* You have earned 50$ and 500 XP *" << endl;
-                currency += 50;
-                xp += 500;
-                score += 3500;
-                cout << "3500 Score Gained!" << endl;
+                if (Active_Enemy.hp <= 0)
+                {
+                    cout << "* Impossible Quest Completed! *" << endl;
+                    cout << "* You have earned 50$ and 500 XP *" << endl;
+                    currency += 50;
+                    xp += 500;
+                    score += 3500;
+                    cout << "3500 Score Gained!" << endl;
+                    cout << endl;
+                    cout << "You have defeated the Grim Reaper and have aquired The Sun Stone and The Moon Stone." << endl;
+                    cout << "A New Character * Old Wizard * has been unlocked!" << endl;
+                    cout << "A New Quest * The Final Battle * has been unlocked" << endl;
+                }
                 break;
 
                 // The Final Battle
@@ -828,10 +875,11 @@ void GameMenu()
     cout << "---------------------------------------" << endl;
     playerdatadisplay();
     cout << "\nMenu" << endl;
-    cout << "\n1. Start a Quest!" << endl;
-    cout << "2. Go to Shop" << endl;
-    cout << "3. View Inventory" << endl;
-    cout << "4. Upgrade Characters" << endl;
+    cout << "\n1. Introduction" << endl;
+    cout << "2. Start a Quest" << endl;
+    cout << "3. Go to Shop" << endl;
+    cout << "4. View Inventory" << endl;
+    cout << "5. Upgrade Characters" << endl;
     cout << endl;
     cout << "---------------------------------------" << endl;
     cout << "Enter Selection: ";
@@ -839,17 +887,20 @@ void GameMenu()
     switch (menu_choice)
     {
     case 1:
+        introduction();
+        break;
+    case 2:
         CharSelectMenu();
         charSelect();
         quest();
         break;
-    case 2:
+    case 3:
         shop();
         break;
-    case 3:
+    case 4:
         inventory_diplay();
         break;
-    case 4:
+    case 5:
         char_upgrade();
         break;
     default:
