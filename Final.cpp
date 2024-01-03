@@ -835,6 +835,7 @@ void quest()
                             //Good Ending
                             enemyDecision(Shadow_Overlord);
                             battle();
+                            cout << "The Old Wizard defeated the Shadow OverLord and removed every evil from the world using the power of the stones. Now the people of Faelight will live happily for ever and ever." << endl;
                         }
 
                         if (fate == 2)
@@ -842,6 +843,7 @@ void quest()
                             //Bad Ending
                             enemyDecision(Fairy_King);
                             battle();
+                            cout << "The Old Wizard decided that the Fairy World was just to soft to be even existing so he decided to remove The Fairy World from existance so the only ones remained were the shadows that ruled the world once again." << endl;
                         }
                     } while (fate > 2);
                 }
