@@ -209,7 +209,7 @@ void char_upgrade()
             cout << "---------------------------------------" << endl;
             cout << endl;
             cout << "Insufficient XP" << endl;
-        }        
+        }
         break;
     case 2:
         if (xp > 250)
@@ -362,8 +362,11 @@ void inventory_selection(int& choice)
     case 1:
         cout << "---------------------------------------" << endl;
         cout << endl;
-        cout << "Out of Healing Potions";
-        cout << endl;
+        if (Healing_Portion <= 0)
+        {
+            cout << "Out of Healing Potions";
+            cout << endl;
+        }
         if (Healing_Portion > 0)
         {
             Selected_Char.hp += 30;
@@ -639,7 +642,7 @@ void quest()
     }
     cout << endl;
     cout << "---------------------------------------" << endl;
-    cout << endl;    
+    cout << endl;
     do
     {
         cout << "Enter Selection: ";
@@ -712,7 +715,7 @@ void quest()
                         battle();
                     }
                 }
-                
+
                 if (Active_Enemy.hp <= 0)
                 {
                     // Reward
@@ -864,7 +867,7 @@ void quest()
         {
             cout << "Wrong Entry!" << endl;
         }
-    }while (quest_select > 5);
+    } while (quest_select > 5);
 }
 
 // Quest Menu Display
@@ -918,7 +921,7 @@ int main()
 
     char escape;
     do
-    {        
+    {
         GameMenu();
         cout << endl;
         cout << "---------------------------------------" << endl;
