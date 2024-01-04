@@ -653,6 +653,7 @@ void quest()
             {
                 // Easy Quest
             case 1:
+                sp_used = false;
                 // 2 Skeletons
                 // Set Skeleton as Active Enemy
                 enemyDecision(Skeleton);
@@ -683,6 +684,7 @@ void quest()
 
                 // Normal Quest
             case 2:
+                sp_used = false;
                 // 3 Skeletons
                 // Set Skeleton as Active Enemy
                 enemyDecision(Skeleton);
@@ -733,6 +735,7 @@ void quest()
 
                 //Hard Quest
             case 3:
+                sp_used = false;
                 // 2 Dragon
                 // Set Dragon as Active Enemy
                 enemyDecision(Dragon);
@@ -779,6 +782,7 @@ void quest()
 
                 //Impossible
             case 4:
+                sp_used = false;
                 // 1 Dragon
                 // Set Dragon as Active Enemy
                 enemyDecision(Dragon);
@@ -821,6 +825,7 @@ void quest()
 
                 // The Final Battle
             case 5:
+                sp_used = false;
                 if (specials_unlocked)
                 {
                     int fate = 0;
