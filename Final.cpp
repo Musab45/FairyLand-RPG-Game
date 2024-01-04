@@ -301,7 +301,7 @@ void shop()
         cout << "---------------------------------------" << endl;
         switch (shop_choice)
         {
-        case 1:
+        case '1':
             if (currency < 20)
             {
                 cout << "Insufficient Currency!";
@@ -318,7 +318,7 @@ void shop()
                 cout << "---------------------------------------" << endl;
             }
             break;
-        case 2:
+        case '2':
             if (currency < 50)
             {
                 cout << "Insufficient Currency!";
