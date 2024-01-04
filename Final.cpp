@@ -498,7 +498,7 @@ void CharSelectMenu()
 // Character Selection
 void charSelect()
 {
-    int choice = 0;
+    char choice = 0;
     // If Grim Reaper Defeated
     if (specials_unlocked)
     {
@@ -511,28 +511,28 @@ void charSelect()
             cin >> choice;
             switch (choice)
             {
-            case 1:
+            case '1':
                 Selected_Char.name = Warrior.name;
                 Selected_Char.hp = Warrior.hp;
                 Selected_Char.atk_max = Warrior.atk_max;
                 Selected_Char.atk_min = Warrior.atk_min;
                 warrior_sp = true;
                 break;
-            case 2:
+            case '2':
                 Selected_Char.name = Mage.name;
                 Selected_Char.hp = Mage.hp;
                 Selected_Char.atk_max = Mage.atk_max;
                 Selected_Char.atk_min = Mage.atk_min;
                 mage_sp = true;
                 break;
-            case 3:
+            case '3':
                 Selected_Char.name = Rouge.name;
                 Selected_Char.hp = Rouge.hp;
                 Selected_Char.atk_max = Rouge.atk_max;
                 Selected_Char.atk_min = Rouge.atk_min;
                 rouge_sp = true;
                 break;
-            case 4:
+            case '4':
                 Selected_Char.name = Old_Wizard.name;
                 Selected_Char.hp = Old_Wizard.hp;
                 Selected_Char.atk_max = Old_Wizard.atk_max;
@@ -557,21 +557,21 @@ void charSelect()
             cin >> choice;
             switch (choice)
             {
-            case 1:
+            case '1':
                 Selected_Char.name = Warrior.name;
                 Selected_Char.hp = Warrior.hp;
                 Selected_Char.atk_max = Warrior.atk_max;
                 Selected_Char.atk_min = Warrior.atk_min;
                 warrior_sp = true;
                 break;
-            case 2:
+            case '2':
                 Selected_Char.name = Mage.name;
                 Selected_Char.hp = Mage.hp;
                 Selected_Char.atk_max = Mage.atk_max;
                 Selected_Char.atk_min = Mage.atk_min;
                 mage_sp = true;
                 break;
-            case 3:
+            case '3':
                 Selected_Char.name = Rouge.name;
                 Selected_Char.hp = Rouge.hp;
                 Selected_Char.atk_max = Rouge.atk_max;
@@ -582,7 +582,7 @@ void charSelect()
                 cout << endl;
                 cout << "Wrong Entry! Enter Again" << endl;
             }
-        } while (choice > 3);
+        } while (choice > '3');
     }
 }
 
